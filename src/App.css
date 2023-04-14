@@ -1,2 +1,14 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  min-height: 100vh;
+  background: rgb(0, 116, 231);
+  background: linear-gradient(
+    156deg,
+    rgba(0, 116, 231, 1) 0%,
+    rgba(139, 62, 254, 1) 90%
+  );
 }
