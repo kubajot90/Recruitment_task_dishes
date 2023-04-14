@@ -1,0 +1,16 @@
+.Main {
+  display: flex;
+  margin-top: 70px;
+}
+
+@media (max-width: 750px) {
+  .Main {
+    margin: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .Main {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,11 +1,11 @@
 .NavBar {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
-  padding: 20px 40px;
   top: 0;
   left: 0;
+  padding: 20px 40px;
   width: 100%;
   color: white;
   font-size: 1.2rem;
@@ -13,12 +13,17 @@
 }
 
 .logo_icon {
-  font-size: 1.2rem;
-  margin-right: 2px;
+  font-size: 1rem;
+  margin-right: 4px;
 }
 
 .logo_title_bold {
   font-weight: 600;
+}
+
+.logo_wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .button {
@@ -33,4 +38,20 @@
   box-shadow: rgba(16, 16, 134, 0.15) 0px 6px 12px -2px,
     rgba(15, 6, 116, 0.2) 0px 3px 7px -3px;
   cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .logo_title,
+  .logo_title_bold {
+    display: none;
+  }
+
+  .logo_icon {
+    color: black;
+  }
+
+  .button {
+    background-color: black;
+    color: white;
+  }
 }
