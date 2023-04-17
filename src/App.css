@@ -1,6 +1,9 @@
 .App {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  align-items: center;
+  padding-top: 60px;
+
   justify-content: center;
   width: 100vw;
   min-height: 100vh;
@@ -10,4 +13,16 @@
     rgba(0, 116, 231, 1) 0%,
     rgba(139, 62, 254, 1) 90%
   );
+}
+
+@media (max-width: 750px) {
+  .App {
+    padding: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .App {
+    flex-direction: column-reverse;
+  }
 }
