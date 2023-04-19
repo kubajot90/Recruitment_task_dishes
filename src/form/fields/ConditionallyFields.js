@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Field } from "redux-form";
 import RenderField from "./RenderField";
-import { conditionallyFieldsActions } from "../store/conditionallyFieldsSlice";
+import { conditionallyFieldsActions } from "../../store/conditionallyFieldsSlice";
 
 const dishes = ["pizza", "soup", "sandwich"];
 
@@ -32,7 +32,6 @@ const ConditionallyFields = ({ meta: { touched, error } }) => {
 
   const generateRangeLabel = (e) => {
     const scale = e.target.value;
-
     dispatch(conditionallyFieldsActions.setRangeLabel(scale));
   };
 
