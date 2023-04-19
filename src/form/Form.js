@@ -1,35 +1,39 @@
 import { useState } from "react";
 import { reduxForm, Field } from "redux-form";
 import classes from "./Form.module.css";
+import ConditionallyFields from "./ConditionallyFields";
+import RenderField from "./RenderField";
 
-const dishes = ["pizza", "soup", "sandwich"];
+const validate = (formData) => {
+  const errors = {};
+
+  if (!formData.name) {
+    errors.name = "Describe your name";
+  }
+  if (!formData.no_of_slices) {
+    errors.no_of_slices = "Set no of pizza slices";
+  }
+  if (!formData.type) {
+    errors.type = "Chose type";
+  }
+  if (!formData.diameter) {
+    errors.diameter = "Set diameter";
+  }
+  if (!formData.spiciness_scale) {
+    errors.spiciness_scale = "Set spiciness scale";
+  }
+  if (!formData.slices_of_bread) {
+    errors.slices_of_bread = "Set slices of bread";
+  }
+  if (!/^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/.test(formData.preparation_time)) {
+    errors.preparation_time = "Set preparation time";
+  }
+  return errors;
+};
 
 function Form({ handleSubmit }) {
-  const [selectedValue, setSelectedValue] = useState("");
-  const [rangeLabel, setRangeLabel] = useState(0);
-
   const submitHandler = (formData) => {
-    console.log(formData);
-  };
-
-  const renderOptions = (dishes) => {
-    return dishes.map((dish) => (
-      <option value={dish} key={dish}>
-        {dish}
-      </option>
-    ));
-  };
-
-  const generateRangeLabel = (e) => {
-    const scale = e.target.value;
-
-    setRangeLabel(scale);
-  };
-
-  const selectChangeHandler = (e) => {
-    const selectedDish = e.target.value;
-
-    setSelectedValue(selectedDish);
+    console.log("formdata: ", formData);
   };
 
   return (
@@ -38,84 +42,23 @@ function Form({ handleSubmit }) {
         <Field
           type="text"
           name="name"
-          component="textarea"
+          component={RenderField}
           placeholder="Name"
         />
         <Field
           type="duration"
-          pattern="^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$"
           name="preparation_time"
-          component="input"
+          component={RenderField}
           placeholder="Preparation time (HH:MM:SS)"
         />
-        <Field
-          type="select"
-          name="type"
-          component="select"
-          onChange={selectChangeHandler}
-        >
-          <option value="" hidden>
-            Chose type
-          </option>
-          {renderOptions(dishes)}
-        </Field>
-
-        {selectedValue === "pizza" && (
-          <>
-            <Field
-              type="number"
-              name="no_of_slices"
-              component="input"
-              placeholder="# of slices"
-            />
-            <Field
-              type="number"
-              step="0.1"
-              min="0"
-              max="100"
-              name="diameter"
-              component="input"
-              placeholder="Diameter"
-            />
-          </>
-        )}
-
-        {selectedValue === "soup" && (
-          <>
-            <label htmlFor="scale"> {rangeLabel} </label>
-            <Field
-              type="range"
-              component="input"
-              id="scale"
-              step="1"
-              min="0"
-              max="10"
-              name="spiciness_scale"
-              placeholder="Spiciness scale"
-              onChange={generateRangeLabel}
-            />
-          </>
-        )}
-
-        {selectedValue === "sandwich" && (
-          <Field
-            // hidden={selectValue !== "sandwich" ? true : false}
-            type="number"
-            component="input"
-            value="1"
-            step="1"
-            min="1"
-            name="slices_of_bread"
-            placeholder="Slices of bread"
-          />
-        )}
-
-        <button>Submit</button>
+        <Field name="conditionallyFields" component={ConditionallyFields} />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 }
 
 export default reduxForm({
-  form: "simple-form",
+  form: "dishesForm",
+  validate,
 })(Form);
