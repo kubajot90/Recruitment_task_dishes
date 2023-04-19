@@ -1,12 +1,19 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Field } from "redux-form";
 import RenderField from "./RenderField";
+import { conditionallyFieldsActions } from "../store/conditionallyFieldsSlice";
 
 const dishes = ["pizza", "soup", "sandwich"];
 
 const ConditionallyFields = ({ meta: { touched, error } }) => {
-  const [selectedDish, setSelectedDish] = useState("");
-  const [rangeLabel, setRangeLabel] = useState(0);
+  const dispatch = useDispatch();
+  const selectedDish = useSelector(
+    (state) => state.conditionallyFields.selectedDish
+  );
+  const rangeLabel = useSelector(
+    (state) => state.conditionallyFields.rangeLabel
+  );
 
   const renderOptions = (dishes) => {
     return (
@@ -26,13 +33,12 @@ const ConditionallyFields = ({ meta: { touched, error } }) => {
   const generateRangeLabel = (e) => {
     const scale = e.target.value;
 
-    setRangeLabel(scale);
+    dispatch(conditionallyFieldsActions.setRangeLabel(scale));
   };
 
   const selectChangeHandler = (e) => {
     const selectedDish = e.target.value;
-    console.log("select change handler - selected dish: ", selectedDish);
-    setSelectedDish(selectedDish);
+    dispatch(conditionallyFieldsActions.selectDish(selectedDish));
   };
 
   return (
