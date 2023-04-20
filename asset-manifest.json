@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Recruitment_task_dishes/static/css/main.0e87e124.css",
+    "main.js": "/Recruitment_task_dishes/static/js/main.3f8490c5.js",
+    "index.html": "/Recruitment_task_dishes/index.html",
+    "main.0e87e124.css.map": "/Recruitment_task_dishes/static/css/main.0e87e124.css.map",
+    "main.3f8490c5.js.map": "/Recruitment_task_dishes/static/js/main.3f8490c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e87e124.css",
+    "static/js/main.3f8490c5.js"
+  ]
+}
