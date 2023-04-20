@@ -62,4 +62,5 @@ const Form = ({ handleSubmit, resetForm }) => {
 export default reduxForm({
   form: "dishesForm",
   validate,
+  shouldValidate: () => true,
 })(Form);
