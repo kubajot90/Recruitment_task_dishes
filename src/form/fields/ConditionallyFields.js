@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Field } from "redux-form";
 import RenderField from "./RenderField";
@@ -75,7 +74,6 @@ const ConditionallyFields = ({ meta: { touched, error } }) => {
 
       {selectedDish === "soup" && (
         <>
-          {/* <label htmlFor="scale"> {rangeLabel} </label> */}
           <Field
             type="range"
             component={RenderField}

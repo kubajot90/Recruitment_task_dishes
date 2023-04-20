@@ -1,3 +1,5 @@
+import classes from "../Form.module.css";
+
 function RenderField({
   input,
   label,
@@ -22,6 +24,7 @@ function RenderField({
             input.onChange(e.target.value);
             onSelectDish(e);
           }}
+          className={classes.field}
         >
           {children}
         </select>
@@ -33,6 +36,7 @@ function RenderField({
           type={type}
           name={name}
           placeholder={placeholder}
+          className={classes.field}
         ></textarea>
       );
     } else {
@@ -45,16 +49,19 @@ function RenderField({
           min={min}
           max={max}
           step={step}
+          className={classes.field}
         />
       );
     }
   };
 
   return (
-    <div>
-      {label && <label>{label}</label>}
+    <div className={classes.field__wrapper}>
+      <label className={classes.field__label}>{label}</label>
       {componentType()}
-      {touched && error && <span>{error}</span>}
+      {touched && error && (
+        <span className={classes.field__error}>{error}</span>
+      )}
     </div>
   );
 }

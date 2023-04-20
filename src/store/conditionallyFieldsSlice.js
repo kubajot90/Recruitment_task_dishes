@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const conditionallyFieldsSlice = createSlice({
   name: "conditionallyFields",
@@ -14,11 +14,6 @@ export const conditionallyFieldsSlice = createSlice({
     setRangeLabel(state, action) {
       state.rangeLabel = action.payload;
     },
-
-    // resetForm(state) {
-    //   state.selectedDish = "";
-    //   state.rangeLabel = 0;
-    // },
   },
 });
 

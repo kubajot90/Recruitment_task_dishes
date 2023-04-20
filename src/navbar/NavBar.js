@@ -1,18 +1,7 @@
-import { useDispatch } from "react-redux";
-import { reset } from "redux-form";
 import { FaPizzaSlice } from "react-icons/fa";
-import { conditionallyFieldsActions } from "../store/conditionallyFieldsSlice";
 import classes from "./NavBar.module.css";
 
-function NavBar() {
-  const dispatch = useDispatch();
-
-  const resetForm = () => {
-    dispatch(reset("dishesForm"));
-    dispatch(conditionallyFieldsActions.setRangeLabel(0));
-    dispatch(conditionallyFieldsActions.selectDish(""));
-  };
-
+function NavBar({ resetForm }) {
   return (
     <div className={classes.NavBar}>
       <div className={classes.logo_wrapper}>

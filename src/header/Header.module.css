@@ -28,7 +28,6 @@
   font-size: 1.3vw;
   letter-spacing: 2px;
   font-weight: 600;
-  /* background-color: #0123cd; */
   cursor: pointer;
   background-image: linear-gradient(
     to right,
@@ -55,31 +54,20 @@
 @media (max-width: 450px) {
   .Header {
     width: 100%;
+    padding: 10vh 8%;
+    text-align: center;
   }
 
   .title {
-    text-align: center;
-    font-size: 6vw;
-    line-height: 7vw;
+    font-size: 1.4rem;
   }
 
   .description {
-    margin: 15px 0 8vw 0;
-    font-size: 3.5vw;
-    text-align: center;
+    font-size: 0.9rem;
   }
 
   .button {
-    font-size: 5vw;
-  }
-}
-
-@media (max-width: 750px) {
-  .Header {
-    padding: 9vw 4.5vw;
-  }
-
-  .button {
-    padding: 2vw 4vw;
+    font-size: 1rem;
+    padding: 3vw 5.5vw;
   }
 }

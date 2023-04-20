@@ -1,37 +1,156 @@
 .Form {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 50%;
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 5% 8%;
+  border-radius: 2px;
   background-color: #fff;
-  width: 38vw;
-  min-height: 45vw;
+}
+
+.loader {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.loader__title {
+  font-size: 1.6vw;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.subtitle {
+  margin-bottom: 18%;
+  font-size: 0.9rem;
+  color: rgb(100, 100, 100);
+}
+
+.field {
+  padding: 0 1rem;
+  margin: 2% 0;
+  background-color: #dee1e85c;
+  font-family: "Inter";
+  font-size: 1rem;
+}
+
+.field::placeholder {
+  color: rgb(144, 144, 144);
+  font-family: "Inter";
+  font-size: 0.9rem;
+  opacity: 1;
+  font-weight: 400;
+}
+
+textarea.field {
+  padding-top: 0.7rem;
+}
+
+select.field {
+  color: rgb(144, 144, 144);
+  font-size: 0.9rem;
+}
+
+.button {
+  margin-top: 8vh;
+  background-color: #0051ff;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.field,
+.button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+}
+
+.field__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field__error {
+  margin-left: 1rem;
+  color: rgb(255, 129, 129);
+}
+
+.field__label {
+  text-align: center;
+  color: rgb(144, 144, 144);
+}
+
+.bold {
+  font-weight: 600;
 }
 
 @media (max-width: 450px) {
   .Form {
+    height: 100vh;
     width: 100%;
+  }
+  .wrapper {
+    padding-top: 14vh;
+    padding-bottom: 10vh;
+    width: 100%;
+    height: 100%;
   }
 }
 
-@media (max-width: 750px) {
+@media (min-width: 451px) {
   .Form {
-    min-height: 100vh;
+    height: 100vh;
+    width: 50%;
   }
   .wrapper {
     width: 100%;
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 750px) {
+  .wrapper {
+    width: 23rem;
+    min-height: 28rem;
+  }
+  .title {
+    font-size: 1.2rem;
   }
 }
 
 @media (min-width: 1200px) {
   .wrapper {
-    min-height: 38vw;
-    width: 32vw;
+    width: 25rem;
+    min-height: 33rem;
+  }
+}
+@media (min-width: 1600px) {
+  .wrapper {
+    width: 35rem;
+    min-height: 45rem;
   }
 }
